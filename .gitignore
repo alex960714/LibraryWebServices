@@ -1,2 +1,5 @@
 /ApplicationClient1/nbproject/private/
 /LibraryClient/nbproject/private/
+/LibraryEJB/build/
+/LibraryClient/build/
+/LibraryClient/dist/
