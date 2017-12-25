@@ -3,3 +3,8 @@
 /LibraryEJB/build/
 /LibraryClient/build/
 /LibraryClient/dist/
+/LibraryEJB/dist/
+/EJBModule1/nbproject/private/
+/EJBModule1/build/
+/JavaApplication1/nbproject/private/
+/JavaApplication1/build/

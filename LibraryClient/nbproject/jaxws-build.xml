@@ -4,23 +4,21 @@
         *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
         *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
 
-        --><project xmlns:carproject="http://www.netbeans.org/ns/car-project/1" xmlns:xalan="http://xml.apache.org/xslt" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
     <!--
                 ===================
                 JAX-WS WSIMPORT SECTION
                 ===================
             -->
     <target name="wsimport-init" depends="init">
-        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
         <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
-        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
         <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
-            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}"/>
+            <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
     <target name="wsimport-client-LibraryWS" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/LibraryWS"/>
-        <property name="wsdl-LibraryWS" location="${meta.inf}/xml-resources/web-service-references/LibraryWS/wsdl/localhost_8080/LibraryWS/LibraryWS.wsdl"/>
+        <property name="wsdl-LibraryWS" location="xml-resources/web-service-references/LibraryWS/wsdl/localhost_8080/LibraryWS/LibraryWS.wsdl"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/LibraryWS" destdir="${build.generated.dir}/jax-wsCache/LibraryWS" wsdl="${wsdl-LibraryWS}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/LibraryWS/LibraryWS?wsdl" xnocompile="true" xendorsed="true">
             <depends file="${wsdl-LibraryWS}"/>
             <produces dir="${build.generated.dir}/jax-wsCache/LibraryWS"/>

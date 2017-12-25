@@ -5,8 +5,8 @@
  */
 package com.ws;
 
-import com.sessions.EmployeeSession;
-import com.sessions.UserSession;
+import com.sessions.LibrarySessions;
+import java.util.ArrayList;
 import javax.ejb.EJB;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -22,14 +22,38 @@ import javax.ejb.Stateless;
 public class LibraryWS {
 
     @EJB
-    private EmployeeSession emp;
-    @EJB
-    private UserSession usr;
+    private LibrarySessions session;
     /**
      * This is a sample web service operation
      */
     @WebMethod(operationName = "hello")
     public String hello(@WebParam(name = "name") String txt) {
         return "Hello " + txt + " !";
+    }
+    
+    @WebMethod
+    public ArrayList<String> getLibrary(){
+        return session.getLibrary();
+    }
+    
+    @WebMethod
+    public void addNewBook(String isbn, String authors, String year,
+            String publisher, String bookName){
+        session.addNewBook(isbn, authors, year, publisher, bookName);
+    }
+    
+    @WebMethod
+    public boolean addNewExemplar(String isbn, Integer num){
+        return session.addNewExemplar(isbn, num);
+    }
+    
+    @WebMethod
+    public boolean takeBook(String isbn){
+        return session.takeBook(isbn);
+    }
+    
+    @WebMethod
+    public boolean returnBook(String isbn){
+        return session.returnBook(isbn);
     }
 }
