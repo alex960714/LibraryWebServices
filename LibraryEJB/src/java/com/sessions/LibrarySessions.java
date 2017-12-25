@@ -20,6 +20,10 @@ public class LibrarySessions {
 
     public LibrarySessions() {
         library = new ArrayList<>();
+        library.add(new Book("5-352-00754-5","Hemingway E.","2005","Azbuka-classika","For Whom the Bell Tolls",2));
+        library.add(new Book("5-02-013996-3","Samarsky A.A., Gulin A.V.","1989","Nauka","Numerical analisys",3));
+        library.add(new Book("0-387-96131-3","Preparata F., Sheimos M.","1989","Mir","Computational geometry",2));
+        library.add(new Book("5-94774-537-2","Irodov I.E.","2006","BINOM","Electromagnetism",4));
     }
 
     public ArrayList<String> getLibrary() {

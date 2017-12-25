@@ -28,7 +28,7 @@ public class LibraryClient {
         String year;
         String publisher;
         String bookName;
-        Integer numAvailable;
+        Integer numExemplars;
         
         Scanner in = new Scanner(System.in);
         System.out.println("Please, enter your credentials:");
@@ -68,8 +68,8 @@ public class LibraryClient {
                         System.out.println("ISBN:");
                         isbn = in.next();
                         System.out.println("Number of exemplars:");
-                        Integer num = in.nextInt();
-                        if(service.addNewExemplar(isbn, num)){
+                        numExemplars = in.nextInt();
+                        if(service.addNewExemplar(isbn, numExemplars)){
                             System.out.println("Your books were added successfully");
                         }
                         else{
