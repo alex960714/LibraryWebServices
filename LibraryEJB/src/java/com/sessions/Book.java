@@ -64,7 +64,7 @@ public class Book {
     }
     
     public String getInfo(){
-        return isbn+" "+authors+" "+year+" "
+        return isbn+" "+authors+" "+year+" "+publisher+" "
                 +bookName+" "+numAvailable.toString();
     }
 }
